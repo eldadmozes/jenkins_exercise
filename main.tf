@@ -10,6 +10,6 @@ resource "aws_instance" "inst1" {
 }
 
 resource "aws_s3_bucket" "buck1"{
-    bucket = "terraform_bucket_alex"
-    
+    bucket = "terraform-bucket-alexfgdg"
+
 }
