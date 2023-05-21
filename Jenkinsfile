@@ -21,7 +21,7 @@ stages {
     stage('upload file to s3'){
         steps {
                 withAWS(credentials: 'terraform_key', region: 'us-east-1') {
-                s3Upload(bucket: 'terraform-bucket-alexfgdg', path: '/Documents/terraform_jenkins_exercise', includePathPattern: '*/graph.png')
+                s3Upload(bucket: 'terraform-bucket-alexfgdg', path: '/exercise', includePathPattern: '*/graph.png')
                 
                 }
             }
