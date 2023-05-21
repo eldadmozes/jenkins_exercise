@@ -9,10 +9,8 @@ resource "aws_instance" "inst1" {
   }
 }
 
-resource "aws_s3_bucket" "buck1"{
+resource "aws_s3_bucket_acl" "buck1"{
     bucket = "terraform-bucket-alexfgdg"
-    block_public_acls = false
-    block_public_policy = false
-    public_read_acl = true
+    acl = "public-read"
 }
 
