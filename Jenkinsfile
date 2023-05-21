@@ -16,16 +16,16 @@ stages {
         steps{
             sh 'terraform graph > graph.dot'
             sh 'dot -Tpng -o graph.dot -o graph.png'
-            sh 'aws s3 cp ./graph.png s3://terraform-bucket-alexfgdg'
+            // sh 'aws s3 cp ./graph.png s3://terraform-bucket-alexfgdg'
         }
     }
-    // stage('upload file to s3'){
-    //     steps {
-    //             withAWS(credentials: 'terraform_key', region: 'us-east-1') {
-    //             s3Upload(bucket: 'terraform-bucket-alexfgdg', path: '/exercise', includePathPattern: '*/graph.png')
+    stage('upload file to s3'){
+        steps {
+                withAWS(credentials: 'terraform_key', region: 'us-east-1') {
+                s3Upload(bucket: 'terraform-bucket-alexfgdg', path: '/exercise', includePathPattern: '*/graph.png')
                 
-    //             }
-    //         }
-    // }
+                }
+            }
+    }
 }
 }
