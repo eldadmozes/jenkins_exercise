@@ -16,7 +16,7 @@ stages {
         steps{
             sh 'terraform graph > graph.dot'
             sh 'dot -Tpng -o graph.dot -o graph.png'
-            sh 'aws s3 cp ./graph.png terraform-bucket-alexfgdg'
+            sh 'aws s3 cp ./graph.png s3://terraform-bucket-alexfgdg'
         }
     }
     // stage('upload file to s3'){
