@@ -15,6 +15,7 @@ stages {
     stage('convert to graph'){
         steps{
             sh 'terraform graph | dot -Tdot > graph.dot'
+            sh 'cd ~/workspace/terraform_job'
             sh 'dot -Tpng -o graph.png graph.dot'
         }
     }
